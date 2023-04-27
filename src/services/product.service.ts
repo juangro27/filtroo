@@ -10,8 +10,8 @@ class ProductService {
         });
     }
 
-    getProducts() {
-        return this.api.get(`/products`);
+    getProducts(limit: number = 8) {
+        return this.api.get(`/products?limit=${limit}`);
     }
 
     getProductDetails(id: number) {

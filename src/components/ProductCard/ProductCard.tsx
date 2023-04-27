@@ -13,14 +13,14 @@ const styles = StyleSheet.create({
     },
     card: {
         flex: 1,
-        height: 130,
+        height: 150,
     },
     spacing: {
         flex: 1,
         padding: 5,
     },
     bgCard: {
-        backgroundColor: "#1f1f1f",
+        backgroundColor: "#ffffff",
         borderRadius: 12,
         justifyContent: "center",
         alignItems: "center",
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
     },
-    name: {
-        color: "#fff",
+    title: {
+        color: "#58C6FF",
         paddingTop: 10,
         fontSize: 15,
         fontWeight: "bold",
@@ -61,7 +61,7 @@ const ProductCard = ({ product }: Props) => {
                                 source={{ uri: product.image }}
                                 style={styles.image}
                             />
-                            <Text style={styles.name}>
+                            <Text style={styles.title}>
                                 {truncateString(product.title)}
                             </Text>
                         </View>

@@ -10,9 +10,9 @@
         "noEmit": true,
         "strict": true,
         "target": "esnext",
-        "baseUrl": ".", // this must be specified if "paths" is specified.
+        "baseUrl": ".",
         "paths": {
-            "@env": ["node_modules/@env"] // this mapping is relative to "baseUrl"
+            "@env": ["./node_modules/@env"]
         }
     },
     "typeRoots": ["./src/types"],

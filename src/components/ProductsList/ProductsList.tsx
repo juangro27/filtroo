@@ -4,19 +4,27 @@ import { Product } from "src/types/product";
 import productService from "../../services/product.service";
 import ProductCard from "../ProductCard/ProductCard";
 
+const styles = StyleSheet.create({
+    flatListContainer: {
+        paddingHorizontal: 5,
+    },
+    spinner: {
+        marginTop: 20,
+        marginBottom: 60,
+    },
+});
+
 const ProductsList = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [count, setCount] = useState(8);
+    useEffect(() => {
+        getImages(count);
+    }, [count]);
 
-    const styles = StyleSheet.create({
-        flatListContainer: {
-            paddingHorizontal: 5,
-        },
-    });
-
-    const getImages = async (): Promise<void> => {
+    const getImages = async (count: number): Promise<void> => {
         try {
-            const { data } = await productService.getProducts();
+            const { data } = await productService.getProducts(count);
             const products: Product[] = data;
             setProducts(products);
             setIsLoading(false);
@@ -24,9 +32,13 @@ const ProductsList = () => {
             throw err;
         }
     };
-    useEffect(() => {
-        getImages();
-    }, []);
+
+    const loadMore = (): void => {
+        let nextCount = count + 8;
+        setCount(nextCount);
+        console.log(nextCount);
+    };
+
     return (
         <>
             {isLoading ? (
@@ -46,6 +58,17 @@ const ProductsList = () => {
                                 <ProductCard product={item} />
                             )}
                             contentContainerStyle={styles.flatListContainer}
+                            onEndReached={() => {
+                                count <= products.length && loadMore();
+                            }}
+                            onEndReachedThreshold={0.1}
+                            ListFooterComponent={
+                                <ActivityIndicator
+                                    size="large"
+                                    color="#00ff00"
+                                    style={styles.spinner}
+                                />
+                            }
                         />
                     ) : (
                         <Text>No results...</Text>

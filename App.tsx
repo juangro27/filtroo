@@ -2,8 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
-import CardListScreen from "./src/screens/ListScreen/ListScreen";
-import NavigationStack from "./src/navigation/NavigationStack/NavigationStack";
+import CardListScreen from "./src/screens/ProductListScreen/ProductListScreen";
 import NavigationTab from "./src/navigation/NavigationTab/NavigationTab";
 
 export default function App(): JSX.Element {

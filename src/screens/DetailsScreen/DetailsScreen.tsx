@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const CardListView = (): JSX.Element => {
+const DetailsScreen = (): JSX.Element => {
     return (
         <View>
-            <Text>CardListView</Text>
+            <Text>DetailsScreen</Text>
         </View>
     );
 };
 
-export default CardListView;
+export default DetailsScreen;

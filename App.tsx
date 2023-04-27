@@ -1,15 +1,17 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import CardListView from "./src/views/CardListView/CardListView";
+import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from "@react-navigation/native";
+import CardListScreen from "./src/screens/ListScreen/ListScreen";
+import NavigationStack from "./src/navigation/NavigationStack/NavigationStack";
+import NavigationTab from "./src/navigation/NavigationTab/NavigationTab";
 
 export default function App(): JSX.Element {
     return (
-        <View style={styles.container}>
-            <Text>Hola</Text>
-            <StatusBar style="auto" />
-            <CardListView />
-        </View>
+        <NavigationContainer>
+            {/* <NavigationStack /> */}
+            <NavigationTab />
+        </NavigationContainer>
     );
 }
 
@@ -21,3 +23,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 });
+// interface Props {
+//     firstname?: string; //Propiedad opcional
+//     lastname: string;
+// }
+
+// export default function AppScreen({ firstname = "Pepa", lastname }: Props) {
+// }

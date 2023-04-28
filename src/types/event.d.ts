@@ -13,3 +13,12 @@ export interface Event {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface Queries {
+    country?: string;
+    city?: string;
+    date?: string;
+    address?: string;
+    hosts?: string;
+    limit?: string;
+}

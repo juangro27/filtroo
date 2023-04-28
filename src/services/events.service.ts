@@ -1,14 +1,18 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
+import { API_URL } from "@env";
+import { Queries } from "types/event";
 
 class EventsService {
+    api: AxiosInstance;
+
     constructor() {
         this.api = axios.create({
-            baseURL: `${process.env.API_URL}/events`,
+            baseURL: `${API_URL}/events`,
         });
     }
 
-    getAllEvents(queries) {
-        const queryObj = {};
+    getAllEvents(queries: Queries) {
+        const queryObj: any = {};
         if (queries) {
             const { country, city, date, address, hosts, limit } = queries;
             if (country) queryObj.country = country;
@@ -22,7 +26,7 @@ class EventsService {
         return this.api.get(`/?${queryString}`);
     }
 
-    getEvent(id) {
+    getEvent(id: string) {
         return this.api.get(`/${id}`);
     }
 }

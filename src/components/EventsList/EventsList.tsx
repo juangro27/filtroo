@@ -4,24 +4,6 @@ import EventCard from "../EventCard/EventCard";
 import eventsService from "../../services/events.service";
 import { Event } from "types/event";
 
-const styles = StyleSheet.create({
-    flatListContainer: {
-        paddingHorizontal: 5,
-        paddingBottom: 30,
-    },
-    spinner: {
-        marginTop: 20,
-        marginBottom: 60,
-    },
-    endResults: {
-        marginTop: 20,
-        marginBottom: 40,
-        color: "#58C6FF",
-        textAlign: "center",
-        fontSize: 20,
-    },
-});
-
 const EventsList = () => {
     const [events, setEvents] = useState<Event[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -32,7 +14,9 @@ const EventsList = () => {
 
     const getEvents = async (limit: number): Promise<void> => {
         try {
-            const { data } = await eventsService.getAllEvents({ limit });
+            const { data } = await eventsService.getAllEvents({
+                limit: limit.toString(),
+            });
             const events: Event[] = data.events;
             setEvents(events);
             setIsLoading(false);
@@ -87,5 +71,23 @@ const EventsList = () => {
         </>
     );
 };
+
+const styles = StyleSheet.create({
+    flatListContainer: {
+        paddingHorizontal: 5,
+        paddingBottom: 30,
+    },
+    spinner: {
+        marginTop: 20,
+        marginBottom: 60,
+    },
+    endResults: {
+        marginTop: 20,
+        marginBottom: 40,
+        color: "#58C6FF",
+        textAlign: "center",
+        fontSize: 20,
+    },
+});
 
 export default EventsList;

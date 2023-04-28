@@ -1,6 +1,6 @@
-function truncateString(str: string): string {
-    if (str.length > 20) {
-        return str.slice(0, 20) + "...";
+function truncateString(str: string, max: number): string {
+    if (str.length > max) {
+        return str.slice(0, max) + "...";
     } else {
         return str;
     }

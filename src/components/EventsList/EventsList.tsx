@@ -35,7 +35,7 @@ const EventsList = () => {
             {isLoading ? (
                 <ActivityIndicator
                     size="large"
-                    color="#00ff00"
+                    color="#58C6FF"
                 />
             ) : (
                 <>
@@ -57,7 +57,7 @@ const EventsList = () => {
                                 limit <= events.length ? (
                                     <ActivityIndicator
                                         size="large"
-                                        color="#00ff00"
+                                        color="#58C6FF"
                                         style={styles.spinner}
                                     />
                                 ) : null

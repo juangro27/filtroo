@@ -23,7 +23,7 @@ const EventCard = ({ event }: any) => {
                                 style={styles.image}
                             />
                             <Text style={styles.name}>
-                                {truncateString(event.name)}
+                                {truncateString(event.name, 19)}
                             </Text>
                             <Text style={styles.hosts}>
                                 Hosts:
@@ -43,7 +43,8 @@ const EventCard = ({ event }: any) => {
                                             );
                                         },
                                         ""
-                                    )
+                                    ),
+                                    20
                                 )}
                             </Text>
                         </View>

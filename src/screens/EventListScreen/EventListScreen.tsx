@@ -7,10 +7,11 @@ const EventListScreen = (): JSX.Element => {
     return (
         <SafeAreaView
             style={{
-                paddingBottom: Platform.OS === "android" ? 30 : 0,
+                paddingTop: 10,
+                // paddingBottom: Platform.OS === "android" ? 0 : 0,
             }}
         >
-            <Text
+            {/* <Text
                 style={{
                     fontWeight: "bold",
                     textAlign: "center",
@@ -21,7 +22,7 @@ const EventListScreen = (): JSX.Element => {
                 }}
             >
                 Our Events
-            </Text>
+            </Text> */}
             <EventsList />
         </SafeAreaView>
     );

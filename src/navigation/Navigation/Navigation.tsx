@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import EventNavigation from "../EventNavigation/EventNavigation";
 import HomeScreen from "../../screens/HomeScreen/HomeScreen";
-import { RootStackParamList } from "screens/RootStackParams";
 
 const Navigation = () => {
     const Tab = createBottomTabNavigator();

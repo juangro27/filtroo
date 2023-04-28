@@ -1,18 +1,15 @@
-import { ActivityIndicator, Text } from "react-native";
+import { ActivityIndicator, ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import eventsService from "../../services/events.service";
 import { Event } from "types/event";
-import Carousel from "../../components/Carousel/Carousel";
+import EventDescription from "../../components/EventDescription/EventDescription";
 
-const DetailsScreen = ({
-    route,
-}: {
-    route: { params: { id: string } };
-}): JSX.Element => {
+const DetailsScreen = ({ route }: any) => {
     const { id } = route.params;
     const [event, setEvent] = useState<Event>();
     const [isLoading, setIsLoading] = useState<boolean>(true);
+
     useEffect(() => {
         getEvent();
     }, []);
@@ -30,26 +27,33 @@ const DetailsScreen = ({
             throw err;
         }
     };
-    console.log(event);
     return (
-        <SafeAreaView>
+        <SafeAreaView edges={["top"]}>
             {isLoading ? (
                 <ActivityIndicator
                     size="large"
-                    color="#00ff00"
+                    color="#58C6FF"
+                    style={styles.spinner}
                 />
             ) : (
-                <>
-                    {event && (
-                        <>
-                            <Carousel images={event.images} />
-                            <Text>{event.name}</Text>
-                        </>
-                    )}
-                </>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    style={styles.container}
+                >
+                    {event && <EventDescription event={event} />}
+                </ScrollView>
             )}
         </SafeAreaView>
     );
 };
-
+const styles = StyleSheet.create({
+    container: {
+        height: "100%",
+    },
+    spinner: {
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+});
 export default DetailsScreen;

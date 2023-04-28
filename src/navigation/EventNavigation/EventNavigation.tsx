@@ -2,24 +2,35 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EventListScreen from "../../screens/EventListScreen/EventListScreen";
 import DetailsScreen from "../../screens/DetailsScreen/DetailsScreen";
-import { RootStackParamList } from "screens/RootStackParams";
 
 const ProductNavigation = () => {
     const Stack = createNativeStackNavigator();
 
     return (
-        <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-            }}
-        >
+        <Stack.Navigator>
             <Stack.Screen
                 name="Events"
                 component={EventListScreen}
+                options={{
+                    gestureEnabled: true,
+                    gestureDirection: "horizontal",
+                    title: "",
+                    headerShown: true,
+                    headerTransparent: true,
+                    headerTintColor: "#fff",
+                }}
             />
             <Stack.Screen
                 name="Details"
                 component={DetailsScreen}
+                options={{
+                    gestureEnabled: true,
+                    gestureDirection: "horizontal",
+                    title: "",
+                    headerShown: true,
+                    headerTransparent: true,
+                    headerTintColor: "#fff",
+                }}
             />
         </Stack.Navigator>
     );

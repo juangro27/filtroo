@@ -1,4 +1,9 @@
 export type RootStackParamList = {
     Home: undefined;
-    List: undefined;
+    Events: undefined;
+    Details: { id: string };
+
+    props: {
+        id: number;
+    };
 };

@@ -1,9 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { StyleSheet } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import CardListScreen from "./src/screens/ProductListScreen/ProductListScreen";
-import NavigationTab from "./src/navigation/NavigationTab/NavigationTab";
+import Navigation from "./src/navigation/Navigation/Navigation";
 
 export default function App(): JSX.Element {
     const MyTheme = {
@@ -20,7 +18,7 @@ export default function App(): JSX.Element {
     };
     return (
         <NavigationContainer theme={MyTheme}>
-            <NavigationTab />
+            <Navigation />
         </NavigationContainer>
     );
 }

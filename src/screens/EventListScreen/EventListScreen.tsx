@@ -1,11 +1,15 @@
-import { Text } from "react-native";
+import { Text, Platform } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import ProductsList from "../../components/ProductsList/ProductsList";
+import EventsList from "../../components/EventsList/EventsList";
 
-const ListScreen = (): JSX.Element => {
+const EventListScreen = (): JSX.Element => {
     return (
-        <SafeAreaView>
+        <SafeAreaView
+            style={{
+                paddingBottom: Platform.OS === "android" ? 30 : 0,
+            }}
+        >
             <Text
                 style={{
                     fontWeight: "bold",
@@ -16,11 +20,11 @@ const ListScreen = (): JSX.Element => {
                     color: "#58C6FF",
                 }}
             >
-                Our Products
+                Our Events
             </Text>
-            <ProductsList />
+            <EventsList />
         </SafeAreaView>
     );
 };
 
-export default ListScreen;
+export default EventListScreen;

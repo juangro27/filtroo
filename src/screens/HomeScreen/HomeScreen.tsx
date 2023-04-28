@@ -5,7 +5,7 @@ import React from "react";
 import { RootStackParamList } from "../RootStackParams";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-type listScreenProp = StackNavigationProp<RootStackParamList, "List">;
+type listScreenProp = StackNavigationProp<RootStackParamList, "Events">;
 
 const HomeScreen = (): JSX.Element => {
     const navigation = useNavigation<listScreenProp>();
@@ -13,7 +13,7 @@ const HomeScreen = (): JSX.Element => {
         <SafeAreaView>
             <Text style={{ color: "white" }}>HomeScreen</Text>
             <Button
-                onPress={() => navigation.navigate("List")}
+                onPress={() => navigation.navigate("Events")}
                 title="Go to List page"
             />
         </SafeAreaView>

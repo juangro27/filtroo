@@ -12,6 +12,11 @@ const EventCard = ({ event }: any): JSX.Element => {
     const goToEvent = () => {
         navigation.navigate("Details", { id: event._id });
     };
+    const hostsList = (hosts: string[]): string => {
+        return hosts.reduce((acc: string, elm: string, index: number) => {
+            return acc + (index + 1 === event.hosts.length ? elm : `${elm}, `);
+        }, "");
+    };
     return (
         <View style={styles.container}>
             <Pressable onPress={goToEvent}>
@@ -27,25 +32,7 @@ const EventCard = ({ event }: any): JSX.Element => {
                             </Text>
                             <Text style={styles.hosts}>
                                 Hosts:
-                                {truncateString(
-                                    event.hosts.reduce(
-                                        (
-                                            acc: string,
-                                            elm: string,
-                                            index: number
-                                        ) => {
-                                            return (
-                                                acc +
-                                                (index + 1 ===
-                                                event.hosts.length
-                                                    ? elm
-                                                    : `${elm}, `)
-                                            );
-                                        },
-                                        ""
-                                    ),
-                                    20
-                                )}
+                                {truncateString(hostsList(event.hosts), 20)}
                             </Text>
                         </View>
                     </View>

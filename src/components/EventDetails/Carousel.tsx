@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-import EventModal from "../../components/EventModal/EventModal";
+import EventModal from "./EventModal";
 
 interface CarouselProps {
     images: string[];
 }
 
-const Carousel = ({ images }: CarouselProps) => {
+const Carousel = ({ images }: CarouselProps): JSX.Element => {
     const [activeSlide, setActiveSlide] = useState<number>(0);
     const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -18,18 +18,17 @@ const Carousel = ({ images }: CarouselProps) => {
         return () => clearInterval(interval);
     }, [activeSlide, images]);
 
-    const handlePrevSlide = () => {
+    const handlePrevSlide = (): void => {
         setActiveSlide(activeSlide === 0 ? images.length - 1 : activeSlide - 1);
     };
 
-    const handleNextSlide = () => {
+    const handleNextSlide = (): void => {
         setActiveSlide(activeSlide === images.length - 1 ? 0 : activeSlide + 1);
     };
 
-    const handleImagePress = (index: number) => {
+    const handleImagePress = (index: number): void => {
         setActiveSlide(index);
         setModalVisible(true);
-        console.log(modalVisible);
     };
     return (
         <View style={styles.carouselContainer}>

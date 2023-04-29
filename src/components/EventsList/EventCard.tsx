@@ -7,7 +7,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 type listScreenProp = StackNavigationProp<RootStackParamList, "Details">;
 
-const EventCard = ({ event }: any) => {
+const EventCard = ({ event }: any): JSX.Element => {
     const navigation = useNavigation<listScreenProp>();
     const goToEvent = () => {
         navigation.navigate("Details", { id: event._id });

@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import Carousel from "../../components/Carousel/Carousel";
+import Carousel from "./Carousel";
 import { Event } from "types/event";
 import { truncateString } from "../../utils/truncateString";
 
 interface EventDescriptionProps {
     event: Event;
 }
-const EventDescription = ({ event }: EventDescriptionProps) => {
+const EventDescription = ({ event }: EventDescriptionProps): JSX.Element => {
     const [fullDescription, setFullDescription] = useState<boolean>(false);
     const maxCharacters: number = 200;
 

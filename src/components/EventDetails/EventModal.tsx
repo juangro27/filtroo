@@ -14,7 +14,7 @@ const EventModal = ({
     images,
     activeIndex,
     onClose,
-}: ModalImageProps) => {
+}: ModalImageProps): JSX.Element => {
     return (
         <Modal
             animationType="slide"

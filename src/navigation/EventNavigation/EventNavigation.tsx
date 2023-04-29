@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EventListScreen from "../../screens/EventListScreen/EventListScreen";
 import DetailsScreen from "../../screens/DetailsScreen/DetailsScreen";
 
-const ProductNavigation = () => {
+const ProductNavigation = (): JSX.Element => {
     const Stack = createNativeStackNavigator();
 
     return (

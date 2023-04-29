@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from "axios";
 import { API_URL } from "@env";
-import { Queries } from "types/event";
 
 class EventsService {
     api: AxiosInstance;
@@ -11,19 +10,8 @@ class EventsService {
         });
     }
 
-    getAllEvents(queries: Queries) {
-        const queryObj: any = {};
-        if (queries) {
-            const { country, city, date, address, hosts, limit } = queries;
-            if (country) queryObj.country = country;
-            if (city) queryObj.city = city;
-            if (date) queryObj.date = date;
-            if (address) queryObj.address = address;
-            if (hosts) queryObj.hosts = hosts;
-            if (limit) queryObj.limit = limit;
-        }
-        const queryString = new URLSearchParams(queryObj).toString();
-        return this.api.get(`/?${queryString}`);
+    getAllEvents(limit: number) {
+        return this.api.get(`/?limit=${limit}`);
     }
 
     getEvent(id: string) {

@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import EventNavigation from "../EventNavigation/EventNavigation";
 import HomeScreen from "../../screens/HomeScreen/HomeScreen";
 
-const Navigation = () => {
+const Navigation = (): JSX.Element => {
     const Tab = createBottomTabNavigator();
 
     return (
